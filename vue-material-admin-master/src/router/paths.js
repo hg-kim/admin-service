@@ -58,13 +58,13 @@ export default [
     meta: { },
     name: 'Root',
     redirect: {
-      name: 'Dashboard'
+      name: 'Usertable'
     }
   },
   {
-    path: '/dashboard',
+    path: '/usertable',
     meta: { breadcrumb: true },
-    name: 'Dashboard',
+    name: 'Usertable',
     component: () => import(
       /* webpackChunkName: "routes" */
       `@/views/Usertable.vue`

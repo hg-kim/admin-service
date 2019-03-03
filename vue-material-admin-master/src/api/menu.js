@@ -1,10 +1,10 @@
 const Menu =  [
-  { header: 'Apps' },
+  { header: 'Setting' },
   {
-    title: 'Dashboard',
+    title: 'User Setting',
     group: 'apps',
     icon: 'dashboard',
-    name: 'Dashboard',
+    name: 'Usertable',
   },
   { header: 'UI Elements' },
   {

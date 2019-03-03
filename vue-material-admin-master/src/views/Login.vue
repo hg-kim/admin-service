@@ -35,7 +35,7 @@ export default {
     login () {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push('/dashboard');
+        this.$router.push('/usertable');
       }, 1000);
     }
   }
