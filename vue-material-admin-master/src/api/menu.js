@@ -28,7 +28,6 @@ const Menu =  [
     component: 'forms',
     icon: 'edit',
     items: [
-      { name: 'basic', title: 'General', component: 'components/basic-forms' },
       { name: 'selects', title: 'Selects', badge: 'new', component: 'components/selects' },
       { name: 'selection-controls', title: 'Selection Controls', component: 'components/selection-controls' },
       { name: 'text-fields', title: 'Text Fields', component: 'components/text-fields' }
