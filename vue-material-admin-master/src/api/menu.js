@@ -1,7 +1,7 @@
 const Menu =  [
   { header: 'Setting' },
   {
-    title: 'User Setting',
+    title: 'User Management',
     group: 'apps',
     icon: 'dashboard',
     name: 'Usertable',
