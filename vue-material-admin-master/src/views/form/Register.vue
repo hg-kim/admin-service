@@ -5,6 +5,9 @@
         <v-flex sm12>
           <v-widget title="User Registeration">
             <div slot="widget-content">
+              <form
+                name="user-registeration-form"
+                autocomple="off">
               <v-container>
                 <v-layout row>
                   <v-flex xs4>
@@ -12,8 +15,7 @@
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
-                      label="E-mail"
-                      name="email"
+                      label="Email"
                       v-model="email"
                       :rules="[rules.required, rules.email]"
                     ></v-text-field>
@@ -26,9 +28,9 @@
                   <v-flex xs8>
                     <v-text-field
                       label="Password"
-                      name="password"
                       type="password"
                       v-model="password"
+                      aautocomplete="new-password"
                       :rules="[rules.required, rules.email]"
                     ></v-text-field>
                   </v-flex>
@@ -36,6 +38,7 @@
                 <br>
                  <v-btn color="success" outline="" @click="register">Register</v-btn>
               </v-container>
+              </form>
             </div>
           </v-widget>
         </v-flex>
@@ -56,7 +59,7 @@ export default {
     return {
       email: '',
       password: '',
-
+      error: null,
       rules: {
         required: (value) => !!value || 'Required.',
         email: (value) => {
@@ -64,18 +67,23 @@ export default {
           return pattern.test(value) || 'Invalid e-mail.';
         }    
       }  
-    };
+    }
   },
   computed: {
   },  
   methods: {
     async register() {
+      try {
       const response = await AuthenticationService.register({
         email: this.email,
         password: this.password
       })
-      console.log(reponse.data)
+      this.$store.dispatch('setToken', response.data.token)
+      this.$store.dispatch('setUser', response.data.user)
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   }
-};
+}
 </script>

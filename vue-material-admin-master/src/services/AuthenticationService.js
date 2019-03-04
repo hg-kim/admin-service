@@ -8,4 +8,3 @@ export default {
         return Api().post('login', credentials)
     }
 }
-
