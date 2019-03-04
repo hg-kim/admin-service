@@ -26,20 +26,30 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    loading: false
-  }),
+import AuthenticationService from '@/services/AuthenticationService'
 
+export default {
+  date () {
+    return {
+      email: '',
+      password: '',
+      error: null,
+      loading: false
+    }
+  },
   methods: {
-    login () {
+    async login() {
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push('/usertable');
-      }, 1000);
+      try {
+        await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error 
+      }
     }
   }
-
 };
 </script>
 <style scoped lang="css">

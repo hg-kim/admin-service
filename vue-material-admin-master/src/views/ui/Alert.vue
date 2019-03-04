@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex sm12 md6 sm6>
-          <v-widget title="Basic Usage">
+          <v-widget title="User Registeration">
             <div slot="widget-content">
               <v-alert type="success" :value="true">
                 This is a success alert.

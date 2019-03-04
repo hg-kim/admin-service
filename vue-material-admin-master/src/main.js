@@ -6,8 +6,12 @@ import store from "./store";
 import "./registerServiceWorker";
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import 'font-awesome/css/font-awesome.css'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false;
+
+Vue.use(Vuetify)
 
 new Vue({
   router,

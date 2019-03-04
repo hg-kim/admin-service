@@ -3,8 +3,9 @@
     <v-toolbar card dense color="transparent">
       <v-toolbar-title><h4>User</h4></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
+      <v-btn icon 
+      @click="navigateTo({name: 'Register'})">
+        <v-icon>person_add</v-icon>
       </v-btn>
     </v-toolbar>
     <v-divider></v-divider>
@@ -42,10 +43,14 @@
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
 import { Projects } from '@/api/project';
 export default {
   data () {
     return {
+      basic: {
+        dialog: false
+      },
       headers: [
         {
           text: '',
@@ -64,6 +69,18 @@ export default {
 
       ],
     };
+  },
+  methods: {
+    navigateTo(route) {
+      this.$router.push(route)
+    },
+    async register() {
+      const response = await AuthenticationService.register({
+        email: this.email,
+        password: this.password
+      })
+      console.log(response.data)
+    }
   },
   computed: {
     projects () {

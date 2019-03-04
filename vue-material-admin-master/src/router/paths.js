@@ -54,6 +54,15 @@ export default [
     )
   },
   {
+    path: '/register',
+    meta: { breadcrumb: true },
+    name: 'Register',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      `@/views/form/Register.vue`
+    )
+  },
+  {
     path: '/',
     meta: { },
     name: 'Root',
@@ -151,13 +160,5 @@ export default [
       `@/views/form/SelectionControls.vue`
     )
   },
-  {
-    path: '/forms/text-fields',
-    meta: { breadcrumb: true },
-    name: 'components/text-fields',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/form/TextFields.vue`
-    )
-  }
+  
 ];

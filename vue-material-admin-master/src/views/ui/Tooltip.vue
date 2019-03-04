@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex lg6>
-          <v-widget title="Basic Usage">
+          <v-widget title="User Registeration">
             <div slot="widget-content">
               <div class="text-xs-center d-flex align-center">
                 <v-tooltip bottom>

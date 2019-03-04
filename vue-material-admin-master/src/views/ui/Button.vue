@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex xl6>
-          <v-widget title="Basic Usage">
+          <v-widget title="User Registeration">
             <div slot="widget-content">
               <div>
                 <v-btn color="success">Success</v-btn>

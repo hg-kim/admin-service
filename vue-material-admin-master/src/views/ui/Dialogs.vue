@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex lg4>
-          <v-widget title="Basic Usage">
+          <v-widget title="User Registeration">
             <div slot="widget-content">
               <v-dialog v-model="basic.dialog" persistent max-width="500px">
                 <v-btn color="primary" dark slot="activator">Open Dialog</v-btn>
