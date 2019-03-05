@@ -80,6 +80,14 @@ export default [
     )
   },
   {
+    path: '/users/:userId',
+    name: 'user',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      `@/components/widgets/list/UserTable`
+    )
+  },
+  {
     path: '/components/alert',
     meta: { breadcrumb: true },
     name: 'components/alerts',

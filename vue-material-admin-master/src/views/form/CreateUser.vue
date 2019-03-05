@@ -11,6 +11,17 @@
               <v-container>
                 <v-layout row>
                   <v-flex xs4>
+                    <v-subheader>Name</v-subheader>
+                  </v-flex>
+                  <v-flex xs8>
+                    <v-text-field
+                      label="Name"
+                      v-model="name"
+                    ></v-text-field>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex xs4>
                     <v-subheader>E-mail</v-subheader>
                   </v-flex>
                   <v-flex xs8>
@@ -19,7 +30,7 @@
                       v-model="email"
                     ></v-text-field>
                   </v-flex>
-                </v-layout>                
+                </v-layout>                  
                 <v-layout row>
                   <v-flex xs4>
                     <v-subheader>Password</v-subheader>
@@ -29,12 +40,12 @@
                       label="Password"
                       type="password"
                       v-model="password"
-                      aautocomplete="new-password"
+                      autocomplete="new-password"
                     ></v-text-field>
                   </v-flex>
                 </v-layout>  
                 <br>
-                <v-btn color="orange" outline="" flat>Create User</v-btn>
+                <v-btn color="orange" outline="" flat @click="post">Create User</v-btn>
               </v-container>
               </form>
             </div>
@@ -56,6 +67,7 @@ export default {
   data () {
     return {
       email: '',
+      name: '',
       password: '',
       error: null
     }
@@ -65,6 +77,7 @@ export default {
       try {
       const response = await UserService.post({
         email: this.email,
+        name: this.name,
         password: this.password
       })
       this.$store.dispatch('setToken', response.data.token)
