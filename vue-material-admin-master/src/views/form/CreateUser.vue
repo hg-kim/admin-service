@@ -17,7 +17,6 @@
                     <v-text-field
                       label="Email"
                       v-model="email"
-                      :rules="[rules.required, rules.email]"
                     ></v-text-field>
                   </v-flex>
                 </v-layout>                
@@ -31,12 +30,11 @@
                       type="password"
                       v-model="password"
                       aautocomplete="new-password"
-                      :rules="[rules.required, rules.email]"
                     ></v-text-field>
                   </v-flex>
                 </v-layout>  
                 <br>
-                 <v-btn color="success" outline="" @click="register">Regi</v-btn>
+                <v-btn color="orange" outline="" flat>Create User</v-btn>
               </v-container>
               </form>
             </div>
@@ -48,8 +46,8 @@
 </template>
 
 <script>
-import VWidget from '@/components/VWidget';
-import AuthenticationService from '@/services/AuthenticationService'
+import VWidget from '@/components/VWidget'
+import UserService from '@/services/UserService'
 
 export default {
   components: {
@@ -59,27 +57,21 @@ export default {
     return {
       email: '',
       password: '',
-      error: null,
-      rules: {
-        required: (value) => !!value || 'Required.',
-        email: (value) => {
-          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || 'Invalid e-mail.';
-        }    
-      }  
+      error: null
     }
   },
-  computed: {
-  },  
   methods: {
-    async register() {
+    async post() {
       try {
-      const response = await AuthenticationService.register({
+      const response = await UserService.post({
         email: this.email,
         password: this.password
       })
       this.$store.dispatch('setToken', response.data.token)
       this.$store.dispatch('setUser', response.data.user)
+      this.$router.push({
+          name: 'Users'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }

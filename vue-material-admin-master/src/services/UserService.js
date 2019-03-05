@@ -4,7 +4,7 @@ export default {
     index() {
         return Api().get('users')
     },
-    post () {
-        return 
+    post (credentials) {
+        return Api().post('users', credentials)
     }
 }
