@@ -12,6 +12,13 @@
       <v-spacer></v-spacer>
 
       <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+        <v-btn large
+          v-if="$store.state.isUserLoggedIn"
+          flat
+          dark
+          @click="logout">
+          Log Out
+        </v-btn>
         <v-btn icon large flat slot="activator">
           <v-avatar size="30px">
             <img src="/static/avatar/man_4.jpg" alt="Michael Wang"/>
@@ -60,6 +67,13 @@ export default {
     },
     handleFullScreen () {
       Util.toggleFullScreen();
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'Root'
+      })
     }
   }
 };

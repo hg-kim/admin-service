@@ -54,29 +54,29 @@ export default [
     )
   },
   {
-    path: '/register',
-    meta: { breadcrumb: true },
-    name: 'Register',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/form/Register.vue`
-    )
-  },
-  {
     path: '/',
     meta: { },
     name: 'Root',
     redirect: {
-      name: 'Usertable'
+      name: 'Users'
     }
   },
   {
-    path: '/usertable',
+    path: '/users',
     meta: { breadcrumb: true },
-    name: 'Usertable',
+    name: 'Users',
     component: () => import(
       /* webpackChunkName: "routes" */
-      `@/views/Usertable.vue`
+      `@/views/Users.vue`
+    )
+  },
+  {
+    path: '/users/create',
+    meta: { breadcrumb: true },
+    name: 'users-create',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      `@/views/form/CreateUser.vue`
     )
   },
   {

@@ -36,7 +36,7 @@
                   </v-flex>
                 </v-layout>  
                 <br>
-                 <v-btn color="success" outline="" @click="register">Register</v-btn>
+                 <v-btn color="success" outline="" @click="register">Regi</v-btn>
               </v-container>
               </form>
             </div>

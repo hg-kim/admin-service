@@ -26,7 +26,7 @@ Thanks
 
 [https://discord.gg/yzMcpG] (https://discord.gg/yzMcpG)
 ## Demo
-[http://vma.isocked.com/#/usertable](http://vma.isocked.com/#/usertable) 
+[http://vma.isocked.com/#/user](http://vma.isocked.com/#/user) 
 
 ## Preview
 ![Preivew](http://vma.isocked.com//static/preview/01_preview.png)

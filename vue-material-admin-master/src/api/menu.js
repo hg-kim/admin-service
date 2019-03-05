@@ -4,7 +4,7 @@ const Menu =  [
     title: 'User Management',
     group: 'apps',
     icon: 'dashboard',
-    name: 'Usertable',
+    name: 'Users',
   },
   { header: 'UI Elements' },
   {

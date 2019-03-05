@@ -17,8 +17,9 @@
               hide-details
               class="hidden-sm-and-down"
               ></v-text-field>     
-              <v-btn icon>
-                <v-icon>filter_list</v-icon>
+              <v-btn icon
+                @click="navigateTo({name: 'Register'})">
+                <v-icon>person_add</v-icon>
               </v-btn>         
             </v-toolbar>
             <v-divider></v-divider>
