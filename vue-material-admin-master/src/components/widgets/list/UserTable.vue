@@ -24,22 +24,20 @@
                 :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
                 class="elevation-1"
                 item-key="email"
-                select-all
-                v-model="selected"
                 >
                 <template slot="items" slot-scope="props">
-                <td>
-                  <v-checkbox
-                    primary
-                    hide-details
-                    v-model="props.selected"
-                  ></v-checkbox>
-                </td>  
                   <td>{{ props.item.name }}</td>            
                   <td>{{ props.item.email }}</td>
+                  <td>{{ $moment(props.item.createdAt).format("YYYY.MM.DD") }}</td>
+                  <td>{{ $moment(props.item.updatedAt).format("YYYY.MM.DD") }}</td>
                   <td>
                     <v-btn depressed outline icon fab dark color="primary" small
-                      @click="navigateTo({name: 'users-edit'})">
+                      @click="navigateTo({
+                        name: 'user-edit',
+                        params: {
+                          userId: props.item.id
+                        }
+                      })">
                       <v-icon>edit</v-icon>
                     </v-btn>
                     <v-btn depressed outline icon fab dark color="pink" small>
@@ -63,7 +61,6 @@ export default {
   data () {
     return {
       search: '',
-        selected: [],
         headers: [
           {
             text: 'Name',
@@ -72,6 +69,14 @@ export default {
           {
             text: 'Email',
             value: 'email'
+          },
+          {
+            text: 'CreatedAt',
+            value: 'createdAt'
+          },
+          {
+            text: 'UpdatedAt',
+            value: 'updatedAt'
           },
           {
             text: 'Action',

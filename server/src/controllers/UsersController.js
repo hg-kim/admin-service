@@ -22,6 +22,16 @@ module.exports = {
             })
         }
     },
+    async show(req, res) {
+        try {
+            const user = await User.findById(req.params.userId)
+            res.send(user)
+        } catch (err) {
+            res.status(500).send({
+                error: 'An error has occured trying to show the user'
+            })
+        }
+    },
     async post(req, res) {
         try {
             const user = await User.create(req.body)

@@ -86,6 +86,7 @@ export default {
       }
 
        const userId = this.$store.state.route.params.userId
+       
        console.log(userId)
        try {
          await UserService.put(this.user)

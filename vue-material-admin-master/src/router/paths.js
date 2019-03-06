@@ -89,7 +89,7 @@ export default [
   },
   {
     path: '/users/:userId/edit',
-    name: 'users-edit',
+    name: 'user-edit',
     component: () => import(
       `@/views/form/EditUser.vue`
     )
