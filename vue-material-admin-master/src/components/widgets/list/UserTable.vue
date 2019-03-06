@@ -38,7 +38,8 @@
                   <td>{{ props.item.name }}</td>            
                   <td>{{ props.item.email }}</td>
                   <td>
-                    <v-btn depressed outline icon fab dark color="primary" small>
+                    <v-btn depressed outline icon fab dark color="primary" small
+                      @click="navigateTo({name: 'users-edit'})">
                       <v-icon>edit</v-icon>
                     </v-btn>
                     <v-btn depressed outline icon fab dark color="pink" small>
@@ -56,6 +57,9 @@
 import UserService from '@/services/UserService'
 
 export default {
+  props: [
+    'user'
+  ],
   data () {
     return {
       search: '',

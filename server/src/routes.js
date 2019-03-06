@@ -10,6 +10,8 @@ module.exports = (app) => {
     app.get('/users',
         UsersController.index)
 
+    app.put('/users:userId',
+        UsersController.put)
     app.post('/users',
         UsersControllerPolicy.post,
         UsersController.post)

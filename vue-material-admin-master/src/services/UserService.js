@@ -9,5 +9,8 @@ export default {
     },
     post (credentials) {
         return Api().post('users', credentials)
+    },
+    put (user) {
+        return Api().put(`users/${user.id}`, user)
     }
 }

@@ -88,6 +88,13 @@ export default [
     )
   },
   {
+    path: '/users/:userId/edit',
+    name: 'users-edit',
+    component: () => import(
+      `@/views/form/EditUser.vue`
+    )
+  },
+  {
     path: '/components/alert',
     meta: { breadcrumb: true },
     name: 'components/alerts',

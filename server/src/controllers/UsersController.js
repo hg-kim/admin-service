@@ -35,5 +35,19 @@ module.exports = {
                 error: 'An error has occured trying to create the user'
             })
         }
+    },
+    async put(req, res) {
+        try {
+            await User.update(req.body, {
+                where: {
+                    id: req.params.userId
+                }
+            })
+            res.send(req.body)
+        } catch (err) {
+            res.status(500).send({
+                error: 'an error has occured trying to update the user'
+            })
+        }
     }
 }
